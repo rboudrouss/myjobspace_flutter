@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         '/profile': (BuildContext context) => ProfileScreen(),
       },
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'My Job Space',
       theme: ThemeData(
         primaryColor: Colors.deepPurple,
         primarySwatch: Colors.deepPurple,
