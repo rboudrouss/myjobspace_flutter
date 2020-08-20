@@ -11,10 +11,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/home': (BuildContext context) => HomeScreen(),
+        '/home': (BuildContext context) => HomeScreen(), // 0
         '/login': (BuildContext context) => LoginScreen(),
         '/getstarted': (BuildContext context) => GetStartedScreen(),
-        '/profile': (BuildContext context) => ProfileScreen(),
+        '/profile': (BuildContext context) => ProfileScreen(), // 1
+        '/notif': (BuildContext context) => NotifScreen(), // 2
+        '/chat': (BuildContext context) => ChatListScreen(), // 3
       },
       debugShowCheckedModeBanner: false,
       title: 'My Job Space',

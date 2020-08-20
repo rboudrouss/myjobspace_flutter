@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myjobspace/models/models.dart';
+import 'package:myjobspace/widgets/widgets.dart';
 import 'offerslist_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,72 +23,10 @@ class HomeScaffold extends StatefulWidget {
 class _HomeScaffoldState extends State<HomeScaffold> {
   @override
   Widget build(BuildContext context) {
-    Widget appBarTitle = new Text(
-      "Offres",
-      style: TextStyle(
-        fontSize: 25,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 1.5,
-      ),
-    );
-    Icon actionIcon = new Icon(Icons.search);
-
     return Scaffold(
       body: BodyHome(),
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 0,
-        title: appBarTitle,
-        actions: <Widget>[
-          IconButton(
-            icon: actionIcon,
-            onPressed: () {
-              setState(
-                //TODO see why this is not working
-                () {
-                  if (actionIcon.icon == Icons.search) {
-                    actionIcon = Icon(Icons.close);
-                    appBarTitle = TextField(
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.search, color: Colors.white),
-                        hintText: "Search...",
-                        hintStyle: TextStyle(color: Colors.white),
-                      ),
-                    );
-                  } else {
-                    actionIcon = Icon(Icons.search);
-                    appBarTitle = Text("AppBar Title");
-                  }
-                },
-              );
-            },
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.event_note),
-            title: Text("Offres"),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            title: Text("Profil"),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            title: Text("Notifications"),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            title: Text("Chat"),
-          ),
-        ],
-      ),
+      appBar: SearchAppBar("Offres"),
+      bottomNavigationBar: NavigationBarAll(0),
     );
   }
 }
