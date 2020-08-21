@@ -41,6 +41,6 @@ List<Comment> comments = [
     user: sam,
     time: "Il y a 5 heures",
     content:
-        "Il me faut un commentaire très long pour vois si mon code marche toujours dans le voici !",
+        "Il me faut un commentaire très long pour voir si mon code marche toujours donc le voici !",
   ),
 ];

@@ -19,6 +19,80 @@ class BodyNotif extends StatefulWidget {
 }
 
 class _BodyNotifState extends State<BodyNotif> {
+  _settingModalBottomSheet(context, comments) {
+    void fonc() {
+      showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return Container(
+            height: 200,
+            child: ListView.builder(
+              itemCount: comments.length,
+              itemBuilder: (BuildContext context, int index) {
+                String smaller(String content) {
+                  int maxCaracters = 45;
+                  if (content.length > maxCaracters) {
+                    content = content.substring(0, maxCaracters) + "...";
+                    return content;
+                  } else {
+                    return content;
+                  }
+                }
+
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            comments[index].user.name,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                        Text(smaller(comments[index].content)),
+                      ],
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text(comments[index].likes.toString()),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              comments[index].liked = !comments[index].liked;
+                              if (comments[index].liked) {
+                                comments[index].likes += 1;
+                              } else {
+                                comments[index].likes -= 1;
+                              }
+                            });
+                          },
+                          icon: Icon(
+                            Icons.thumb_up,
+                            color: (comments[index].liked
+                                ? Colors.blue
+                                : Colors.black),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
+            ),
+          );
+        },
+      );
+    }
+
+    return fonc;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -92,7 +166,10 @@ class _BodyNotifState extends State<BodyNotif> {
                           Text(notifs[index].nbcomments.toString()),
                           IconButton(
                             icon: Icon(Icons.mode_comment),
-                            onPressed: () {},
+                            onPressed: _settingModalBottomSheet(
+                              context,
+                              notifs[index].comments,
+                            ),
                           ),
                           Text(notifs[index].likes.toString()),
                           IconButton(
