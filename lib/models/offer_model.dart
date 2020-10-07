@@ -1,6 +1,7 @@
 class Offer {
   final String title;
   final String subtitle;
+  final String content;
   final String imageurl;
   final String time; // Must be datetime
   final String adress;
@@ -10,11 +11,12 @@ class Offer {
   Offer({
     this.title,
     this.subtitle,
+    this.content,
     this.time,
     this.imageurl = 'assets/images/work_image.jpg',
     this.adress,
     this.recent,
-    saved,
+    this.saved,
   });
 }
 
@@ -22,35 +24,36 @@ class Offer {
 
 List<Offer> workoffers = [
   Offer(
-    title: "Offre de stage rémunéré en marketing",
+    title: "Offre de travail rémunéré en marketing",
     subtitle: "gotta make a good coffee",
+    content: "Tu vas travailler pendant 8h par jour",
     time: "il y a 1 jour",
     adress: "Meknès, Région Fès-Meknès",
     recent: true,
   ),
   Offer(
-    title: "Offre de stage rémunéré en comptabilité",
+    title: "Offre de travail rémunéré en comptabilité",
     subtitle: "gotta make a good coffee",
     time: "il y a 2 jour",
     adress: "Meknès, Région Fès-Meknès",
     recent: true,
   ),
   Offer(
-    title: "Stage de pré-embauche - agence d'assurrance",
+    title: "Travail - agence d'assurrance",
     subtitle: "gotta make a good coffee",
     time: "il y a 4 jour",
     adress: "Fés, Région Fès-Meknès",
     recent: false,
   ),
   Offer(
-    title: "Offre de stage en commerce",
+    title: "Offre de travail en commerce",
     subtitle: "gotta make a good coffee",
     time: "il y a 4 jour",
     adress: "Fés, Région Fès-Meknès",
     recent: false,
   ),
   Offer(
-    title: "Offre de stage en informatique",
+    title: "Offre de travail en informatique",
     subtitle: "gotta make a good coffee",
     time: "il y a 4 jour",
     adress: "Fés, Région Fès-Meknès",

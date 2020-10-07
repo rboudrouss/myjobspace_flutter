@@ -45,19 +45,19 @@ class _NavigationBarAllState extends State<NavigationBarAll> {
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.event_note),
-          title: Text("Offres"),
+          label: "Offres",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          title: Text("Profil"),
+          label: "Profil",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.notifications),
-          title: Text("Notifications"),
+          label: "Notifications",
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.chat),
-          title: Text("Chat"),
+          label: "Chat",
         ),
       ],
     );
